@@ -20,8 +20,7 @@ module.exports.seeAllUsers = (req, res) => {
 
 module.exports.search = (req, res) => {
 	var q = req.query.q;
-	console.log(db.get('users'));
-	var result = db.get('users').filter( user => {
+	var result = db.get('users').value().filter( user => {
 		return user.name.indexOf(q) !== -1;
 	});
 	res.render("../users/user", {

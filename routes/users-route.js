@@ -18,18 +18,7 @@ db.defaults({  users: [] })
 router.get("/", userController.seeAllUsers );
 
 // send respond for /users/search?
-router.get("/search", (req, res) => {
-	var q = req.query.q;
-	console.log(db.get('users'));
-	var result = db.get('users').filter( user => {
-		return user.name.indexOf(q) !== -1;
-	});
-	res.render("../users/user", {
-
-		users: result
-
-	})
-});
+router.get("/search", userController.search);
 
 // send respond for create /users/create request
 router.get("/create", userController.getCreate);
