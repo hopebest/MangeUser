@@ -1,5 +1,8 @@
 extends ../layouts/users-layouts.pug
 block content
 	h1 User Detail 
-	p
-		span= user.name
+	ul
+		each value, index in user
+			li= index + ":" + value
+		
+	

@@ -1,8 +1,14 @@
 extends ../layouts/users-layouts.pug
 block content
-		h1 Create new user
-		form(action="/users/create", method="POST")
-			label name
-			input(type="text" name="name")
-			button Create 
+		h1.btn.btn-success Create new user
+		form.mt-2(action="/users/create", method="POST")
+			.form-group
+				label.mr-2.text-danger(for = "name" ) Name
+				input#name.form-control(type="text" name="name")
+
+			.form-group
+				label.mr-2.text-danger(for = "email") Email
+				input#email.form-control(type="text" name="email")
+
+			button.btn.btn-primary.mt-2 Create 
 

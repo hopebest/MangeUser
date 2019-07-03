@@ -1,14 +1,19 @@
 extends ../layouts/users-layouts.pug
 block content
 		h1 List users
-		a(href= "/users/create") Create new user
-		form(action= "/users/search" method= "GET")
-			input(type= "text" name= "q")
-			button Search
-		a(href= "/users/create")
-		ul 
+		a.btn.btn-success(href= "/users/create") Create new user
+		form.d-flex.mt-2(action= "/users/search" method= "GET")
+			input.form-control(type= "text" name= "q")
+			button.btn.btn-primary.ml-2 Search
+		table.table
+			tr
+				th Name
+				th Email
+				th 
+
 			each user in users
-				li 
-					span=  user.name
-					span &nbsp;
-					a(href="/users/" + user.id) View
+				tr
+					td=  user.name
+					td=  user.email
+					td  
+						a(href="/users/" + user.id) View
