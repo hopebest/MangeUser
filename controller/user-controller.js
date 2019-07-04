@@ -37,10 +37,27 @@ module.exports.getCreate = (req, res) => {
 
 module.exports.postCreate = (req, res) => {
 	req.body.id = ids.generate();
+	var errors = [];
+	if(!req.body.name){
+		errors.push("Name is required");
+
+	}
+	if(!req.body.email){
+		errors.push("Email is required");
+	}
+	if(errors.length){		
+	res.render("../users/user-create", {
+		errors: errors,
+		values: req.body
+	});
+	return;
+	}
+	
 	db.get('users')
 	.push(req.body)
 	.write();
 	res.redirect("/users");
+	
 };
 
 module.exports.getUser = (req, res) => {
