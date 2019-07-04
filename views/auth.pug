@@ -1,0 +1,18 @@
+extends ../layouts/users-layouts.pug
+block content
+		h1.btn.btn-success Login
+
+		if errors
+			each error in errors
+				.alert.alert-danger= error
+
+		form.mt-2(action="/auth/login", method="POST")
+			.form-group
+				label.mr-2.text-danger(for = "email" ) Email
+					input#name.form-control(type="text" name="email" value= values ? values.email : "")
+
+			.form-group
+				label.mr-2.text-danger(for = "password") Password  
+				input#email.form-control(type="password" name="password" value= values ? values.password : "")
+
+			button.btn.btn-primary.mt-2 Login 

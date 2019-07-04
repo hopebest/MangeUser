@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userController = require("../controller/user-controller");
+var validation = require("../controller/Validation/user-validation.js");
 
 
 //set for shortID 
@@ -24,9 +25,9 @@ router.get("/search", userController.search);
 router.get("/create", userController.getCreate);
 
 // send respond for view user
-router.get("/:id", userController.getUser);
+router.get("/:id",userController.getUser);
 
 // post method insert user
-router.post("/create", userController.postCreate);
+router.post("/create",validation.postCreate, userController.postCreate);
 
 module.exports = router;

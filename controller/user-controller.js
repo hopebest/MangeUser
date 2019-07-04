@@ -5,6 +5,8 @@ var adapter = new FileSync('db.json');
 var db = low(adapter);
 db.defaults({  users: [] })
   .write();
+//set for md5
+var md5  = require('md5');
 
 
 //set for shortID 
@@ -37,26 +39,12 @@ module.exports.getCreate = (req, res) => {
 
 module.exports.postCreate = (req, res) => {
 	req.body.id = ids.generate();
-	var errors = [];
-	if(!req.body.name){
-		errors.push("Name is required");
-
-	}
-	if(!req.body.email){
-		errors.push("Email is required");
-	}
-	if(errors.length){		
-	res.render("../users/user-create", {
-		errors: errors,
-		values: req.body
-	});
-	return;
-	}
-	
+	req.body.password = md5(req.body.password);
 	db.get('users')
 	.push(req.body)
 	.write();
 	res.redirect("/users");
+
 	
 };
 
