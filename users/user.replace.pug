@@ -1,12 +1,12 @@
 extends ../layouts/users-layouts.pug
 block content
-		h1.btn.btn-success Create new user
+		h1.btn.btn-success Replace user
 
 		if errors
 			each error in errors
 				.alert.alert-danger= error
 
-		form.mt-2(action="/users/create", method="POST")
+		form.mt-2(action="/users/replace/" + user.id, method="POST")
 			.form-group
 				label.mr-2.text-danger(for = "name" ) Name
 					input#name.form-control(type="text" name="name" value= values ? values.name : "") 
@@ -20,5 +20,5 @@ block content
 					input#name.form-control(type="password" name="password" value= values ? values.password : "")
 
 
-			button.btn.btn-primary.mt-2 Create 
+			button.btn.btn-primary.mt-2 Replace 
 

@@ -30,4 +30,13 @@ router.get("/:id",userController.getUser);
 // post method insert user
 router.post("/create",validation.postCreate, userController.postCreate);
 
+// get method for receiving user-replace.pug
+router.get("/replace/:id", userController.getReplaceUser);
+
+// put method for replace user
+router.post("/replace/:id", validation.postReplace, userController.postReplaceUser);
+
+//delete method for removing user
+router.get("/delete/:id", userController.deleteUser);
+
 module.exports = router;
