@@ -16,3 +16,5 @@ module.exports = User;
 
 
 //tao them user cho du an
+
+//tao model thu 2
