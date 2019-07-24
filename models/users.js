@@ -13,3 +13,6 @@ var userSchema = new Schema({
 var User = mongoose.model('User', userSchema, 'users');
 
 module.exports = User;
+
+
+//tao them user cho du an
