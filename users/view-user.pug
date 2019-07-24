@@ -3,6 +3,7 @@ block content
 	h1 User Detail 
 	ul
 		each value, index in user
-			li= index + ":" + value
+			if( index == "name" || index == "email" || index == "password")
+				li= index + ":" + value
 		
 	

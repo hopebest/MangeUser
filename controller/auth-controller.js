@@ -7,6 +7,11 @@ db.defaults({  users: [] })
   .write();
 
 
+//set for users model
+var User = require('../models/users.js');
+
+//set for mongoose
+var mongoose = require('mongoose');
 module.exports.login = (req, res) => {
 	res.render("../views/auth");
 };
@@ -14,22 +19,29 @@ module.exports.login = (req, res) => {
 module.exports.postLogin = (req, res) => {
 	var email = req.body.email;
 	var password = req.body.password;
-	var user = db.get('users').find({email: email}).value();
-	if(!user) {
+	// var user = db.get('users').find({email: email}).value();
+	var user = User.findOne({email: email}, function (err, obj) {
+
+	if(!obj) {
 		res.render("../views/auth", {
 			errors: ["User doesn't exist."],
 			values: req.body
 		});
 		return;
 	}
-	if(md5(password) !== user.password){
+	else{
+		console.log(obj.email);
+	}
+
+	if(md5(password) !== obj.password){
 		res.render("../views/auth", {
 			errors: ["Wrong password"],
 			values: req.body
 		});
 		return;
 	}
-	res.cookie("userID", user.id);
+	res.cookie("userID", obj._id);
 	res.redirect("/users");
+	});
 
 };

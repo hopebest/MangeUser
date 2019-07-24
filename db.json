@@ -1,28 +1,22 @@
 {
   "users": [
     {
-      "name": "asdas",
-      "id": "494ff7"
+      "name": "asdasd",
+      "email": "manh@gmail.com",
+      "password": "81dc9bdb52d04dc20036dbd8313ed055",
+      "id": "74c2c8"
     },
     {
-      "name": "ac",
-      "id": "e2f420"
+      "name": "ha",
+      "email": "ha@ma.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "id": "7debc2"
     },
     {
-      "name": "ssadad",
-      "id": "60cd19"
-    },
-    {
-      "name": "nam",
-      "id": "8d43c6"
-    },
-    {
-      "name": "manh",
-      "id": "891895"
-    },
-    {
-      "name": "asdas",
-      "id": "dc1d52"
+      "name": "ad",
+      "email": "tu@gmail.com",
+      "password": "979d472a84804b9f647bc185a877a8b5",
+      "id": "cf6084"
     }
   ]
 }

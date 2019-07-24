@@ -1,1 +1,4 @@
 node_modules
+Dockerfile
+db.json
+npm-debug.log.2306799720

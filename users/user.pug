@@ -16,8 +16,8 @@ block content
 					td=  user.name
 					td=  user.email
 					td  
-						a(href= "/users/" + user.id) View
+						a(href= "/users/" + user._id) View
 					td
-						a.text-danger(href= "/users/delete/" + user.id) Delete
+						a.text-danger(href= "/users/delete/" + user._id) Delete
 					td 
-						a.text-warning(href = "/users/replace/" + user.id) Replace
+						a.text-warning(href = "/users/replace/" + user._id) Replace

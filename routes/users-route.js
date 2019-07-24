@@ -25,18 +25,18 @@ router.get("/search", userController.search);
 router.get("/create", userController.getCreate);
 
 // send respond for view user
-router.get("/:id",userController.getUser);
+router.get("/:_id",userController.getUser);
 
 // post method insert user
 router.post("/create",validation.postCreate, userController.postCreate);
 
 // get method for receiving user-replace.pug
-router.get("/replace/:id", userController.getReplaceUser);
+router.get("/replace/:_id", userController.getReplaceUser);
 
 // put method for replace user
-router.post("/replace/:id", validation.postReplace, userController.postReplaceUser);
+router.post("/replace/:_id", validation.postReplace, userController.postReplaceUser);
 
 //delete method for removing user
-router.get("/delete/:id", userController.deleteUser);
+router.get("/delete/:_id", userController.deleteUser);
 
 module.exports = router;
